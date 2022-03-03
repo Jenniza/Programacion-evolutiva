@@ -7,6 +7,7 @@ package algoritmoGenetico.seleccion;
 
 import algoritmoGenetico.AlgoritmoGenetico;
 import algoritmoGenetico.individuos.Individuo;
+import java.util.Random;
 
 /**
  *
@@ -19,8 +20,32 @@ public class SelecconEstocasticaUniversal extends Seleccion{
     }
 
     @Override
-    public void seleccion( ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void seleccion() {
+        Individuo[] aux=new Individuo[algG.getTamPoblacion()];
+        for (int i = 0; i < algG.getTamPoblacion(); i++) {
+            aux[i]=algG.getPoblacion()[i].clon(algG.getPoblacion()[i].getCromosoma());
+        }
+        algG.quicksort(aux, 0, algG.getTamPoblacion()-1);
+        Individuo[] sel=new Individuo[algG.getTamPoblacion()];
+        double distancia=1/(double)algG.getTamPoblacion();
+        Random rand=new Random();
+        double mark=rand.nextDouble(distancia);
+        
+        for (int i = 0; i < algG.getPoblacion().length; i++) {
+            double inf=i/algG.getTamPoblacion();
+            double max=(i+1)/algG.getTamPoblacion();
+            for (int j = 0; j < algG.getTamPoblacion(); j++) {
+                if(aux[i].getPuntuacionAc()>=inf && aux[i].getPuntuacionAc()<=max ){
+                    sel[i]=aux[j];
+                    j=algG.getTamPoblacion();
+                }
+            }
+            
+                
+            }
+            
+        
+        copiar(algG.getPoblacion(), sel);
     }
 
     

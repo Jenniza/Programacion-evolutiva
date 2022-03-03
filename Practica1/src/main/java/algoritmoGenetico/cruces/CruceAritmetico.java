@@ -6,6 +6,7 @@
 package algoritmoGenetico.cruces;
 
 import algoritmoGenetico.AlgoritmoGenetico;
+import algoritmoGenetico.individuos.Individuo;
 
 /**
  *
@@ -21,7 +22,33 @@ public class CruceAritmetico extends Cruce{
 
     @Override
     public void cruce() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < sel_cruce.length; i+=2) {
+            Individuo padre=algG.getPoblacion()[i];
+            Individuo madre=algG.getPoblacion()[i+1];
+            
+            
+            double n=1;
+            Object [] a=new Object[padre.getCromosoma().length];
+            Object [] b=new Object[madre.getCromosoma().length];
+            
+            for (int j = 0; j < padre.getCromosoma().length; j++) {
+                double r= Math.random();
+                if (r>0.5){
+                    a[i]=padre.getCromosoma()[i];
+                    b[i]=madre.getCromosoma()[i];
+                
+                }else{
+                    b[i]=padre.getCromosoma()[i];
+                    a[i]=madre.getCromosoma()[i];
+                }
+                
+                
+            }
+            hijo1=padre.clon((Boolean[])a);
+            hijo2=madre.clon((Boolean[])b);
+            algG.getPoblacion()[i]=hijo1;
+            algG.getPoblacion()[i+1]=hijo2;
     }
     
+    }
 }

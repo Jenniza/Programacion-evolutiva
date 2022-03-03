@@ -273,7 +273,7 @@ public class AlgoritmoGenetico {
         }
     }
     //SACADO DE INTERNET
-   /*public static void quicksort(Individuo A[], int izq, int der) {
+   public static void quicksort(Individuo A[], int izq, int der) {
 
         Individuo pivote=A[izq].clon(A[izq].getCromosoma()); // tomamos primer elemento como pivote
         int i=izq;         // i realiza la búsqueda de izquierda a derecha
@@ -298,7 +298,7 @@ public class AlgoritmoGenetico {
          if(j+1 < der)
             quicksort(A,j+1,der);          // ordenamos subarray derecho
 
-  }*/
+  }
 
     public int getTamPoblacion() {
         return tamPoblacion;

@@ -34,7 +34,7 @@ public class CruceSBX extends Cruce{
                 beta=2*Math.pow(r, 1/(n+1));}
             else{
                 beta=Math.pow(1/(2*(1-r)), 1/(n+1));}
-            for (int j = 0; j < algG.getTamPoblacion(); j++) {
+            for (int j = 0; j < padre.getCromosoma().length; j++) {
                 double p=0;
                 double k=0;
                 if(((1+beta)*p+(1-beta)*k)/2<0.5){
