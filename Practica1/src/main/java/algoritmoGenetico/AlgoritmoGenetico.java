@@ -86,10 +86,10 @@ public class AlgoritmoGenetico {
         this.tCru=cruce;
         this.tMut=mutacion;
         this.j=j;
-        this.mejor=new double[tamPoblacion];
-        this.mejorAbsoluto=new double[tamPoblacion];
-        this.media=new double[tamPoblacion];
-        this.presion=new double[tamPoblacion];
+        this.mejor=new double[maxGeneraciones];
+        this.mejorAbsoluto=new double[maxGeneraciones];
+        this.media=new double[maxGeneraciones];
+        this.presion=new double[maxGeneraciones];
         this.elitismoCheck=elitismoCheck;
         this.elitismo=elitismo;
         this.g=g;
@@ -272,6 +272,7 @@ public class AlgoritmoGenetico {
              
         }
     }
+    //SACADO DE INTERNET
    /*public static void quicksort(Individuo A[], int izq, int der) {
 
         Individuo pivote=A[izq].clon(A[izq].getCromosoma()); // tomamos primer elemento como pivote

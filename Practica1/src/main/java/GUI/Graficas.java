@@ -26,17 +26,11 @@ public class Graficas {
 
 
             panelMathPlot.addLegend("SOUTH");
-            panelMathPlot.addLinePlot("Mejor Absoluto", Color.MAGENTA, x, mejorAbs);
-            panelMathPlot.addLinePlot("Mejor de la Generacion", Color.GREEN, x, mejor);
-            panelMathPlot.addLinePlot("Media Generacion", Color.ORANGE, x, media);
+            panelMathPlot.addLinePlot("Mejor Absoluto", Color.BLUE, x, mejorAbs);
+            panelMathPlot.addLinePlot("Mejor de la Generacion", Color.RED, x, mejor);
+            panelMathPlot.addLinePlot("Media Generacion", Color.GREEN, x, media);
             panelMathPlot.addLinePlot("Presion selectiva", Color.gray, x, presion);
            
-            
-     
-     
-     
-     
-     
      }
     
     

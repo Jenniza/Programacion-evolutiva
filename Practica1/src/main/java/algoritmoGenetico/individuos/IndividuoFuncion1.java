@@ -33,6 +33,8 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
         for(int i = 0; i < tamTotal; i++) this.cromosoma[i] = this.rand.nextBoolean();
         this.fenotipo[0]=getFenotipo(0);
         this.fenotipo[1]=getFenotipo(1);
+        System.out.println("x: "+getFenotipo(0));
+         System.out.println("y: "+getFenotipo(1));
     }
     
     
@@ -78,7 +80,7 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
                    
        }
        
-       return res*valorError;
+       return min[num]+res*((max[num]-min[num]))/(Math.pow(2, tamGenes[num])-1);
    }
 
 }

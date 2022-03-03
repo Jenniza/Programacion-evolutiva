@@ -31,7 +31,8 @@ public class CruceMonopunto extends Cruce{
         for (int i = 0; i < sel_cruce.length; i+=2) {
             Individuo padre=algG.getPoblacion()[i];
             Individuo madre=algG.getPoblacion()[i+1];
-            int pCruce=rand.nextInt(1, padre.getCromosoma().length-1);
+            int pCruce=rand.nextInt(padre.getCromosoma().length-2)+1;
+            
             Boolean [] a=new Boolean[padre.getCromosoma().length];
             Boolean [] b=new Boolean[madre.getCromosoma().length];
             for (int j = 0; j < padre.getCromosoma().length; j++) {

@@ -285,6 +285,7 @@
         <Property name="text" type="java.lang.String" value="Elitismo"/>
       </Properties>
       <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="elitismoCheckStateChanged"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="elitismoCheckMouseClicked"/>
       </Events>
     </Component>

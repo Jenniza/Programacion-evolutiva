@@ -115,6 +115,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
 
         elitismoCheck.setText("Elitismo");
+        elitismoCheck.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                elitismoCheckStateChanged(evt);
+            }
+        });
         elitismoCheck.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 elitismoCheckMouseClicked(evt);
@@ -231,8 +236,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_elitismoActionPerformed
 
     private void elitismoCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elitismoCheckMouseClicked
-        elitism=!elitism;
+        //elitism=!elitism;
     }//GEN-LAST:event_elitismoCheckMouseClicked
+
+    private void elitismoCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_elitismoCheckStateChanged
+        elitism=!elitism;
+    }//GEN-LAST:event_elitismoCheckStateChanged
 
     
 

@@ -14,6 +14,7 @@ algoritmoGenetico\mutaciones\MutacionUniforme.class
 algoritmoGenetico\seleccion\SelecionTorneoProbabilistico.class
 algoritmoGenetico\cruces\CruceUniforme.class
 algoritmoGenetico\individuos\IndividuoFuncion2.class
+GUI\PanelPrincipal$5.class
 algoritmoGenetico\cruces\CruceSBX.class
 algoritmoGenetico\seleccion\Seleccion.class
 GUI\PanelPrincipal$2.class
