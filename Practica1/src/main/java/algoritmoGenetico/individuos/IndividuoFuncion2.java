@@ -41,5 +41,42 @@ public class IndividuoFuncion2 extends Individuo<Boolean> {
         return valor;
     }
 
+    public double evalua() {
+        //falta por hacer
+        fitness=getValor();
+        return fitness;
+    }
+
+    @Override
+    public Individuo clon(Boolean [] b) {
+        IndividuoFuncion1 clon= new IndividuoFuncion1(this.getValorError());
+        clon.setCromosoma(b);
+        clon.evalua();
+        return clon;
+    }
+
+    @Override
+    public double getFenotipo(int num) {
+        double res=0;
+        int pos=0;
+        int p=0;
+        //ArrayList<T> alelo= new ArrayList();
+        for (int i = 0; i < num; i++) {
+            pos+=tamGenes[i];
+        }
+        for (int j = 0; j < tamGenes[num]; j++) {
+            //alelo.add(cromosoma[j]);
+            double aux=0;
+            if(cromosoma[j+pos]){
+                aux=1;
+            }
+
+            res+=aux*Math.pow(2, p);
+            p++;
+
+        }
+
+        return min[num]+res*((max[num]-min[num]))/(Math.pow(2, tamGenes[num])-1);
+    }
     
 }
