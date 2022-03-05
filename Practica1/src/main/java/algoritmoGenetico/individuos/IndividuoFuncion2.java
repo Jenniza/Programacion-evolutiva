@@ -25,6 +25,10 @@ public class IndividuoFuncion2 extends Individuo<Boolean> {
         this.tamGenes[1] = this.tamGen(this.valorError, min[1], max[1]);
         int tamTotal = tamGenes[0] + tamGenes[1];
         this.cromosoma = new Boolean[tamTotal];
+        for(int i = 0; i < tamTotal; i++) this.cromosoma[i] = this.rand.nextBoolean();
+        this.fenotipo[0]=getFenotipo(0);
+        this.fenotipo[1]=getFenotipo(1);
+        
     }
 
     public double getValor() {
@@ -37,19 +41,19 @@ public class IndividuoFuncion2 extends Individuo<Boolean> {
         for(int i=1;i<6;i++ ){
             sum2+=i*Math.cos((i+1)*x2+i);
         }
-        valor=sum1+sum2;
+        valor=sum1*sum2;
         return valor;
     }
 
     public double evalua() {
         //falta por hacer
-        fitness=getValor();
+        fitness=190 -(getValor());
         return fitness;
     }
 
     @Override
     public Individuo clon(Boolean [] b) {
-        IndividuoFuncion1 clon= new IndividuoFuncion1(this.getValorError());
+        IndividuoFuncion2 clon= new IndividuoFuncion2(this.getValorError());
         clon.setCromosoma(b);
         clon.evalua();
         return clon;

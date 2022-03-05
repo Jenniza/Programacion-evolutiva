@@ -202,7 +202,8 @@ public class AlgoritmoGenetico {
         double punt_acu = 0; // puntuación acumulada
         double aptitud_mejor = 0; // mejor aptitud
         double sumaptitud = 0; // suma de la aptitud
-        double mAbs=0;
+        double sumavalor=0;
+        double mAbs=-100000000;
         if(generacionActual!=0){
             mAbs=mejorAbsoluto[generacionActual-1];
         }
@@ -210,19 +211,20 @@ public class AlgoritmoGenetico {
         for (int i = 0; i < tamPoblacion; i++) {
             double aptitud=poblacion[i].evalua();
             sumaptitud+=aptitud;
+            sumavalor+=poblacion[i].getValor();
             if (poblacion[i].getFitness()>aptitud_mejor){
                 aptitud_mejor=poblacion[i].getFitness();
                 pos_mejor=i;
-                mejor[generacionActual]=poblacion[i].getFitness();
+                mejor[generacionActual]=poblacion[i].getValor();
                 if (mAbs<poblacion[i].getFitness()){
-                    mAbs=poblacion[i].getFitness();
+                    mAbs=poblacion[i].getValor();
                 }
             
             }
             
         }
-        media[generacionActual]=sumaptitud/tamPoblacion;
-        mejor[generacionActual]=aptitud_mejor;
+        media[generacionActual]=sumavalor/tamPoblacion;
+        mejor[generacionActual]=poblacion[pos_mejor].getValor();
         mejorAbsoluto[generacionActual]=mAbs;
         presion[generacionActual]=aptitud_mejor / media[generacionActual];
         poblacion[0].setPuntuacion(poblacion[0].getFitness()/sumaptitud);

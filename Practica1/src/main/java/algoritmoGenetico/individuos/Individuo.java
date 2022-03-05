@@ -94,7 +94,7 @@ public abstract class Individuo<T> {
     public void setPuntuacionAc(double puntuacionAc) {
         this.puntuacionAc = puntuacionAc;
     }
-    
+    public abstract double getValor();
     public abstract double evalua();
     public abstract Individuo clon( T[] crom);
     public abstract double getFenotipo(int num);

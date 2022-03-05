@@ -30,5 +30,10 @@ public class IndividuoFuncion4 extends Individuo<Boolean>{
     public double getFenotipo(int num) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public double getValor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
