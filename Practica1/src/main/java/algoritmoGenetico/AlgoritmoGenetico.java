@@ -60,6 +60,8 @@ public class AlgoritmoGenetico {
     private double [] presion;
     private boolean elitismoCheck;
     private double elitismo;
+    
+    private double aptitud_mAbs = 0; // mejor aptitud
     Graficas g;
     /*public AlgoritmoGenetico(int tamPoblacion, Individuo[] poblacion, double[] fitness, int maxGeneraciones, double probCruce, double probMutacion, int tamTorneo, double precision) {
         this.tamPoblacion = tamPoblacion;
@@ -161,7 +163,7 @@ public class AlgoritmoGenetico {
             Individuo[] pobElite;
             pobElite=new Individuo[(int)(tamPoblacion*elitismo)/100];
             if (elitismoCheck) {
-                pobElite=getElite();
+                pobElite=getElite(elitismo);
             }
             sel.seleccion();
             this.cruce.cruce();
@@ -201,11 +203,13 @@ public class AlgoritmoGenetico {
     private void evaluar() {
         double punt_acu = 0; // puntuación acumulada
         double aptitud_mejor = 0; // mejor aptitud
+        double mAbs=0;
         double sumaptitud = 0; // suma de la aptitud
         double sumavalor=0;
-        double mAbs=-100000000;
+        
         if(generacionActual!=0){
             mAbs=mejorAbsoluto[generacionActual-1];
+            
         }
         
         for (int i = 0; i < tamPoblacion; i++) {
@@ -216,8 +220,9 @@ public class AlgoritmoGenetico {
                 aptitud_mejor=poblacion[i].getFitness();
                 pos_mejor=i;
                 mejor[generacionActual]=poblacion[i].getValor();
-                if (mAbs<poblacion[i].getFitness()){
+                if (aptitud_mAbs<poblacion[i].getFitness()){
                     mAbs=poblacion[i].getValor();
+                    aptitud_mAbs=poblacion[i].getFitness();
                 }
             
             }
@@ -236,7 +241,7 @@ public class AlgoritmoGenetico {
         
     }
   
-     private Individuo[] getElite() {
+     public Individuo[] getElite(double elitismo) {
         //quicksort(poblacion, 0, tamPoblacion-1);
         Individuo[] res= new Individuo[(int)(tamPoblacion*elitismo)/100];
         double mAb=0;

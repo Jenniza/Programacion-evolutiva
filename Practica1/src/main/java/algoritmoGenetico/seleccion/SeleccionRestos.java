@@ -7,6 +7,7 @@ package algoritmoGenetico.seleccion;
 
 import algoritmoGenetico.AlgoritmoGenetico;
 import algoritmoGenetico.individuos.Individuo;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,7 +23,15 @@ public class SeleccionRestos extends Seleccion{
 
     @Override
     public void seleccion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double prob=15;
+        
+        ArrayList<Individuo> restos=new ArrayList<>();
+        Individuo[] sel=new Individuo[algG.getTamPoblacion()];
+        
+        for (int i = 0; i < 10; i++) {
+            double rand = Math.random()*100;
+            if(prob<=rand){}
+        }
     }
     
 }

@@ -21,26 +21,22 @@ public class SelecconEstocasticaUniversal extends Seleccion{
 
     @Override
     public void seleccion() {
-        Individuo[] aux=new Individuo[algG.getTamPoblacion()];
-        for (int i = 0; i < algG.getTamPoblacion(); i++) {
-            aux[i]=algG.getPoblacion()[i].clon(algG.getPoblacion()[i].getCromosoma());
-        }
-        algG.quicksort(aux, 0, algG.getTamPoblacion()-1);
+       
         Individuo[] sel=new Individuo[algG.getTamPoblacion()];
-        double distancia=1/(double)algG.getTamPoblacion();
-        Random rand=new Random();
-        double mark=rand.nextDouble(distancia);
-        
+        Double random=Math.random();
+        double distancia=random/algG.getTamPoblacion();
+        double mark=distancia;
+        int pos=0;
         for (int i = 0; i < algG.getPoblacion().length; i++) {
-            double inf=i/algG.getTamPoblacion();
-            double max=(i+1)/algG.getTamPoblacion();
-            for (int j = 0; j < algG.getTamPoblacion(); j++) {
-                if(aux[i].getPuntuacionAc()>=inf && aux[i].getPuntuacionAc()<=max ){
-                    sel[i]=aux[j];
-                    j=algG.getTamPoblacion();
-                }
-            }
             
+            
+            while((mark>algG.getPoblacion()[pos].getPuntuacionAc())&&mark<algG.getTamPoblacion()) 
+                        pos++;
+                 
+                Individuo n = algG.getPoblacion()[pos].clon (algG.getPoblacion()[pos].getCromosoma());
+                sel[i]=n;    
+                mark+=1/(double)algG.getTamPoblacion();
+                    
                 
             }
             

@@ -29,7 +29,7 @@ public class Graficas {
             panelMathPlot.addLinePlot("Mejor Absoluto", Color.BLUE, x, mejorAbs);
             panelMathPlot.addLinePlot("Mejor de la Generacion", Color.RED, x, mejor);
             panelMathPlot.addLinePlot("Media Generacion", Color.GREEN, x, media);
-            panelMathPlot.addLinePlot("Presion selectiva", Color.gray, x, presion);
+            //panelMathPlot.addLinePlot("Presion selectiva", Color.gray, x, presion);
            
      }
     

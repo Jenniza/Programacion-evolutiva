@@ -19,8 +19,26 @@ public class SeleccionTruncamiento extends Seleccion{
     }
 
     @Override
-    public void seleccion( ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void seleccion() {
+        double trunc=50;
+        double elec=algG.getTamPoblacion()*trunc/100;
+        Individuo[] sel=new Individuo[algG.getTamPoblacion()];
+        Individuo[] aux=algG.getElite(elec);
+        int vuelta=(int) (algG.getTamPoblacion()/elec);
+        int i=0;
+        while (i < algG.getPoblacion().length) {
+            for (int j = 0; j < aux.length && i < algG.getPoblacion().length; j++) {
+                sel[i]=aux[j].clon(aux[j].getCromosoma());
+                i++;
+            }
+            
+          
+                    
+                
+            }
+            
+        
+        copiar(algG.getPoblacion(), sel);
     }
 
     
