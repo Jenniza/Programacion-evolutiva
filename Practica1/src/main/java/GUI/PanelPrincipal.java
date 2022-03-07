@@ -56,12 +56,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
         elitismo = new javax.swing.JTextField();
         ejecutar = new javax.swing.JButton();
         elitismoCheck = new javax.swing.JCheckBox();
+        jLabel10 = new javax.swing.JLabel();
+        n = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Practica 1");
 
-        funcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Función 1", "Función 2", "Función 3", "Función 4" }));
+        funcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Función 1", "Función 2", "Función 3", "Función 4", "Función 4(Con reales)" }));
         funcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 funcionActionPerformed(evt);
@@ -96,7 +98,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         seleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estocastica", "Restos", "Ruleta", "T. Deterministico", "T. Probabilistico", "Truncamiento" }));
 
-        cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aritmetico", "BLX", "Monopunto", "SBX", "Uniforme" }));
+        cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aritmetico", "BLX", "Monopunto", "Uniforme" }));
 
         mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Uniforme" }));
 
@@ -126,6 +128,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setText("Nº de variables");
+
+        n.setText("6");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,9 +159,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
-                            .addComponent(elitismoCheck))
+                            .addComponent(elitismoCheck)
+                            .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mutacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cruce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(seleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,7 +173,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                             .addComponent(nGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tamPob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(elitismo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addContainerGap(488, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +218,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(elitismo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(elitismoCheck))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 308, Short.MAX_VALUE)
                 .addComponent(ejecutar)
                 .addContainerGap())
         );
@@ -221,7 +233,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void ejecutarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ejecutarMouseClicked
        
        AlgoritmoGenetico alG= new AlgoritmoGenetico(getFuncion(),getTamPob(),getnGen(),
-               getpCruce(),getpMutas(),getPrecision(),getSeleccion(),getCruce(),getMutacion(),getElitismo(),elitism ,new Graficas(panelMathPlot));
+               getpCruce(),getpMutas(),getPrecision(),getSeleccion(),getCruce(),getMutacion(),getElitismo(),elitism,getVariables() ,new Graficas(panelMathPlot));
        
         alG.run();
         
@@ -252,6 +264,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JCheckBox elitismoCheck;
     private javax.swing.JComboBox<String> funcion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -261,6 +274,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> mutacion;
+    private javax.swing.JTextField n;
     private javax.swing.JTextField nGen;
     private javax.swing.JTextField pCruce;
     private javax.swing.JTextField pMutas;
@@ -272,7 +286,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     public int getCruce() {
         return cruce.getSelectedIndex();
     }
-
+    public int getVariables(){
+        return Integer.parseInt(n.getText());
+    }
     public int getElitismo() {
         return  Integer.parseInt(elitismo.getText());
     }

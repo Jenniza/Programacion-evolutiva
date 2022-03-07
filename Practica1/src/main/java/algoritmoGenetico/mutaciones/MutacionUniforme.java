@@ -6,6 +6,7 @@
 package algoritmoGenetico.mutaciones;
 
 import algoritmoGenetico.AlgoritmoGenetico;
+import java.util.Random;
 
 /**
  *
@@ -20,7 +21,30 @@ public class MutacionUniforme extends Mutacion{
 
     @Override
     public void mutacion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                boolean mutado=false;
+        int i,j;
+        double prob;
+        
+        for (i = 0; i < algG.getTamPoblacion(); i++) {
+            for (int k = 0; k < algG.getPoblacion()[i].getTamGenes().length; k++) {
+                int genTam =algG.getPoblacion()[i].getTamGenes()[k];
+                for (j = 0;  j< genTam; ++j) {
+                    prob=Math.random()*100;
+                    if(probMuta>prob){
+                        mutado=true;
+                        
+                        
+                    }
+                    
+                }
+                if (mutado){
+                    algG.getPoblacion()[i].evalua();
+                    mutado=false;
+                }
+            }
+             
+            
+        }
     }
     
 }

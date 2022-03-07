@@ -22,7 +22,35 @@ public class SeleccionTorneoDeterministico extends Seleccion{
 
     @Override
     public void seleccion( ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Individuo[] sel=new Individuo[algG.getTamPoblacion()];
+        int muestreo=3;
+        for (int i = 0; i < algG.getPoblacion().length; i++) {
+            int j=0;
+            int[] torneo=new int[muestreo];
+            while (j<muestreo) {                
+                int rand=(int) (Math.random()*100);
+                torneo[j]=rand;
+                j++;
+            }
+            
+            j=1;
+           
+            int mejor=torneo[0];
+            while(j<muestreo) {
+                int aux=torneo[j];
+                if(algG.getPoblacion()[mejor].getPuntuacion()<algG.getPoblacion()[aux].getPuntuacion()){
+                    mejor=aux;
+                }
+                j++;
+            }
+                        
+                 
+                Individuo n = algG.getPoblacion()[mejor].clon (algG.getPoblacion()[mejor].getCromosoma());
+                sel[i]=n;    
+                    
+                
+            }
+        copiar(algG.getPoblacion(), sel);
     }
     
 }

@@ -17,6 +17,7 @@ import algoritmoGenetico.individuos.IndividuoFuncion1;
 import algoritmoGenetico.individuos.IndividuoFuncion2;
 import algoritmoGenetico.individuos.IndividuoFuncion3;
 import algoritmoGenetico.individuos.IndividuoFuncion4;
+import algoritmoGenetico.individuos.IndividuoFuncion5;
 import algoritmoGenetico.mutaciones.Mutacion;
 import algoritmoGenetico.mutaciones.MutacionBasica;
 import algoritmoGenetico.mutaciones.MutacionUniforme;
@@ -60,7 +61,7 @@ public class AlgoritmoGenetico {
     private double [] presion;
     private boolean elitismoCheck;
     private double elitismo;
-    
+    private int variables;
     private double aptitud_mAbs = 0; // mejor aptitud
     Graficas g;
     /*public AlgoritmoGenetico(int tamPoblacion, Individuo[] poblacion, double[] fitness, int maxGeneraciones, double probCruce, double probMutacion, int tamTorneo, double precision) {
@@ -76,7 +77,7 @@ public class AlgoritmoGenetico {
 
 
     public AlgoritmoGenetico(int funcion,int tamPoblacion, int maxGeneraciones, double probCruce, double probMutacion, double precision, int seleccion, 
-            int cruce, int mutacion, double elitismo, boolean elitismoCheck, Graficas g) {
+            int cruce, int mutacion, double elitismo, boolean elitismoCheck,int variables, Graficas g) {
         
         this.funcion=funcion;
         this.tamPoblacion = tamPoblacion;
@@ -95,6 +96,7 @@ public class AlgoritmoGenetico {
         this.elitismoCheck=elitismoCheck;
         this.elitismo=elitismo;
         this.g=g;
+        this.variables=variables;
         switch(mutacion){
             case 0:
                 this.mut=new MutacionBasica(this);
@@ -116,10 +118,6 @@ public class AlgoritmoGenetico {
                 this.cruce=new CruceMonopunto(this);
                 break;
             case 3:
-                this.cruce=new CruceSBX(this);
-                 break;
-                 
-            case 4:
                 this.cruce=new CruceUniforme(this);
                  break;
         
@@ -184,17 +182,20 @@ public class AlgoritmoGenetico {
         for (int i = 0; i < tamPoblacion; i++) {
             switch(funcion){
                 case 0:
-                    this.poblacion[i]=new IndividuoFuncion1(this.precision);
+                    this.poblacion[i]=new IndividuoFuncion1(this.precision,this.variables);
                     break;
                 case 1:
-                    this.poblacion[i]=new IndividuoFuncion2(this.precision);
+                    this.poblacion[i]=new IndividuoFuncion2(this.precision,this.variables);
                      break;
                 case 2:
-                    this.poblacion[i]=new IndividuoFuncion3(this.precision);
+                    this.poblacion[i]=new IndividuoFuncion3(this.precision,this.variables);
                      break;
                 case 3:
-                    this.poblacion[i]=new IndividuoFuncion4(this.precision);
+                    this.poblacion[i]=new IndividuoFuncion4(this.precision,this.variables);
                      break;
+                case 4:
+                    this.poblacion[i]=new IndividuoFuncion5(this.precision,this.variables);
+                    break;
             }
             
         }

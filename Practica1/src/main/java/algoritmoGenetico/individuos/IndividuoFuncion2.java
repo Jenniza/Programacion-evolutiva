@@ -11,8 +11,8 @@ package algoritmoGenetico.individuos;
  */
 public class IndividuoFuncion2 extends Individuo<Boolean> {
     //Schubert
-    public IndividuoFuncion2(double v) {
-        super(v);
+    public IndividuoFuncion2(double v,int n) {
+        super(v,n);
         this.tamGenes = new int[2];
         this.min = new double[2];
         this.max = new double[2];
@@ -55,7 +55,7 @@ public class IndividuoFuncion2 extends Individuo<Boolean> {
 
     @Override
     public Individuo clon(Boolean [] b) {
-        IndividuoFuncion2 clon= new IndividuoFuncion2(this.getValorError());
+        IndividuoFuncion2 clon= new IndividuoFuncion2(this.getValorError(),0);
         clon.setCromosoma(b);
         clon.evalua();
         return clon;

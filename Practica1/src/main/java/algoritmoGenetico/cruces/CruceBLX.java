@@ -34,12 +34,12 @@ public class CruceBLX extends Cruce{
             for (int j = 0; j < padre.getCromosoma().length; j++) {
                 double r= Math.random();
                 if (r>0.5){
-                    a[i]=padre.getCromosoma()[i];
-                    b[i]=madre.getCromosoma()[i];
+                    a[i]=padre.getCromosoma()[j];
+                    b[i]=madre.getCromosoma()[j];
                 
                 }else{
-                    b[i]=padre.getCromosoma()[i];
-                    a[i]=madre.getCromosoma()[i];
+                    b[i]=padre.getCromosoma()[j];
+                    a[i]=madre.getCromosoma()[j];
                 }
                 
                 

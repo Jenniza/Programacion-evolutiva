@@ -11,8 +11,8 @@ package algoritmoGenetico.individuos;
  */
 public class IndividuoFuncion3 extends Individuo<Boolean> {
     //EggHolder
-    public IndividuoFuncion3(double v) {
-        super(v);
+    public IndividuoFuncion3(double v,int n) {
+        super(v,n);
         this.tamGenes = new int[2];
         this.min = new double[2];
         this.max = new double[2];
@@ -25,6 +25,9 @@ public class IndividuoFuncion3 extends Individuo<Boolean> {
         this.tamGenes[1] = this.tamGen(this.valorError, min[1], max[1]);
         int tamTotal = tamGenes[0] + tamGenes[1];
         this.cromosoma = new Boolean[tamTotal];
+        for(int i = 0; i < tamTotal; i++) this.cromosoma[i] = this.rand.nextBoolean();
+        this.fenotipo[0]=getFenotipo(0);
+        this.fenotipo[1]=getFenotipo(1);
     }
 
    public double getValor() {
@@ -36,13 +39,13 @@ public class IndividuoFuncion3 extends Individuo<Boolean> {
 
    public double evalua() {
         //falta por hacer
-        fitness=getValor();
+        fitness=1000-getValor();
         return fitness;
     }
 
     @Override
     public Individuo clon(Boolean [] b) {
-        IndividuoFuncion1 clon= new IndividuoFuncion1(this.getValorError());
+        IndividuoFuncion3 clon= new IndividuoFuncion3(this.getValorError(),0);
         clon.setCromosoma(b);
         clon.evalua();
         return clon;

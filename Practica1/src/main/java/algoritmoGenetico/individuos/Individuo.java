@@ -23,7 +23,8 @@ public abstract class Individuo<T> {
     double fitness;
     double puntuacion;
     double puntuacionAc;
-   public Individuo(double v){
+    int n;
+   public Individuo(double v,int n){
        valorError=v;
    
    }
@@ -93,6 +94,10 @@ public abstract class Individuo<T> {
 
     public void setPuntuacionAc(double puntuacionAc) {
         this.puntuacionAc = puntuacionAc;
+    }
+    public int getNAlelos(){
+        return fenotipo.length;
+    
     }
     public abstract double getValor();
     public abstract double evalua();

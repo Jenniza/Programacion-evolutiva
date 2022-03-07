@@ -41,7 +41,6 @@ public class MutacionBasica extends Mutacion{
                         
                         }
                         
-                     
                     }
                     
                 }

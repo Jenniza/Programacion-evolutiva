@@ -16,8 +16,8 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
     
     
     
-    public IndividuoFuncion1(double vError) {
-       super(vError);
+    public IndividuoFuncion1(double vError,int n) {
+       super(vError,n);
         this.tamGenes = new int[2];
         this.min = new double[2];
         this.max = new double[2];
@@ -53,7 +53,7 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
 
     @Override
     public Individuo clon(Boolean [] b) {
-        IndividuoFuncion1 clon= new IndividuoFuncion1(this.getValorError());
+        IndividuoFuncion1 clon= new IndividuoFuncion1(this.getValorError(),0);
         clon.setCromosoma(b);
         clon.evalua();
         return clon;

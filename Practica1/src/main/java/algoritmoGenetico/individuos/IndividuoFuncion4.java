@@ -11,8 +11,8 @@ package algoritmoGenetico.individuos;
  */
 public class IndividuoFuncion4 extends Individuo<Boolean>{
 
-    public IndividuoFuncion4(double v) {
-        super(v);
+    public IndividuoFuncion4(double v,int n) {
+        super(v,n);
     }
 
    

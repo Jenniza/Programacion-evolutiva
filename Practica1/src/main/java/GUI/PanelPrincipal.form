@@ -51,9 +51,11 @@
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="elitismoCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="n" min="-2" max="-2" attributes="0"/>
                           <Component id="mutacion" min="-2" max="-2" attributes="0"/>
                           <Component id="cruce" min="-2" max="-2" attributes="0"/>
                           <Component id="seleccion" min="-2" max="-2" attributes="0"/>
@@ -66,7 +68,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="557" max="32767" attributes="0"/>
+              <EmptySpace pref="488" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -122,7 +124,12 @@
                   <Component id="elitismo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="elitismoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="338" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  <Component id="n" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="308" max="32767" attributes="0"/>
               <Component id="ejecutar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -138,11 +145,12 @@
     <Component class="javax.swing.JComboBox" name="funcion">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
+          <StringArray count="5">
             <StringItem index="0" value="Funci&#xf3;n 1"/>
             <StringItem index="1" value="Funci&#xf3;n 2"/>
             <StringItem index="2" value="Funci&#xf3;n 3"/>
             <StringItem index="3" value="Funci&#xf3;n 4"/>
+            <StringItem index="4" value="Funci&#xf3;n 4(Con reales)"/>
           </StringArray>
         </Property>
       </Properties>
@@ -238,12 +246,11 @@
     <Component class="javax.swing.JComboBox" name="cruce">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="4">
             <StringItem index="0" value="Aritmetico"/>
             <StringItem index="1" value="BLX"/>
             <StringItem index="2" value="Monopunto"/>
-            <StringItem index="3" value="SBX"/>
-            <StringItem index="4" value="Uniforme"/>
+            <StringItem index="3" value="Uniforme"/>
           </StringArray>
         </Property>
       </Properties>
@@ -288,6 +295,16 @@
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="elitismoCheckStateChanged"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="elitismoCheckMouseClicked"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N&#xba; de variables"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="n">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="6"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

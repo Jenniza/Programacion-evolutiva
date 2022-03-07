@@ -25,27 +25,39 @@ public class CruceAritmetico extends Cruce{
         for (int i = 0; i < sel_cruce.length; i+=2) {
             Individuo padre=algG.getPoblacion()[i];
             Individuo madre=algG.getPoblacion()[i+1];
+
+            Boolean [] a=new Boolean[padre.getCromosoma().length];
             
-            
-            double n=1;
-            Object [] a=new Object[padre.getCromosoma().length];
-            Object [] b=new Object[madre.getCromosoma().length];
-            
-            for (int j = 0; j < padre.getCromosoma().length; j++) {
-                double r= Math.random();
-                if (r>0.5){
-                    a[i]=padre.getCromosoma()[i];
-                    b[i]=madre.getCromosoma()[i];
+            int pos=0;
+            for (int m = 0; m < padre.getMin().length; m++) {
                 
-                }else{
-                    b[i]=padre.getCromosoma()[i];
-                    a[i]=madre.getCromosoma()[i];
+                Boolean x=(Boolean) padre.getCromosoma()[pos];
+                Boolean y=(Boolean) madre.getCromosoma()[pos];
+                Boolean llevada=false;
+                if (x&&y){
+                    llevada=true;
                 }
-                
-                
+
+                for (int j =1; j < padre.getTamGenes()[m]; j++) {
+                   
+                    x=(Boolean) padre.getCromosoma()[j];
+                    y=(Boolean) madre.getCromosoma()[j];
+                    a[pos]=x^y;
+                    a[pos]=llevada^(Boolean)a[pos];
+                    pos++;
+                    if(x&&y){
+                        llevada=true;
+
+                    }else {
+                        llevada=false;
+                    }
+                }
+                a[pos]=llevada;
+                pos++;
             }
+            
             hijo1=padre.clon((Boolean[])a);
-            hijo2=madre.clon((Boolean[])b);
+            hijo2=madre.clon((Boolean[])a);
             algG.getPoblacion()[i]=hijo1;
             algG.getPoblacion()[i+1]=hijo2;
     }

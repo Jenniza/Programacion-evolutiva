@@ -24,9 +24,10 @@ public abstract class Cruce {
         this.algG=algG;
         double prob=algG.getProbCruce()/100;
       
-        double rand= Math.random();
+        
         ArrayList<Integer> sel=new ArrayList<Integer>();
         for (int i = 0; i < algG.getTamPoblacion(); i++) {
+            double rand= Math.random();
             if (prob>=rand) {
                 sel.add(i);
             }
