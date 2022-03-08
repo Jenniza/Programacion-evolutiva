@@ -46,7 +46,9 @@ public class IndividuoFuncion3 extends Individuo<Boolean> {
     @Override
     public Individuo clon(Boolean [] b) {
         IndividuoFuncion3 clon= new IndividuoFuncion3(this.getValorError(),0);
-        clon.setCromosoma(b);
+        for (int i = 0; i < cromosoma.length; i++) {
+            clon.setCromosoma(i,new Boolean(b[i]));
+        }
         clon.evalua();
         return clon;
     }
@@ -73,6 +75,11 @@ public class IndividuoFuncion3 extends Individuo<Boolean> {
         }
 
         return min[num]+res*((max[num]-min[num]))/(Math.pow(2, tamGenes[num])-1);
+    }
+
+    @Override
+    public String toString() {
+        return ("Valor mínimo en: "+getValor()+" x1: "+getFenotipo(0)+" x2: "+getFenotipo(1));
     }
     
 }

@@ -34,7 +34,7 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
         this.fenotipo[0]=getFenotipo(0);
         this.fenotipo[1]=getFenotipo(1);
         System.out.println("x: "+getFenotipo(0));
-         System.out.println("y: "+getFenotipo(1));
+        System.out.println("y: "+getFenotipo(1));
     }
     
     
@@ -43,6 +43,8 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
     
     public double getValor() {
         double x1 = this.getFenotipo(0), x2 = this.getFenotipo(1);
+        this.fenotipo[0]=x1;
+        this.fenotipo[1]=x2;
         return (21.5 + x1 * Math.sin(4 * Math.PI * x1) + x2 * Math.sin(20 * Math.PI * x2));
 }
 
@@ -54,7 +56,9 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
     @Override
     public Individuo clon(Boolean [] b) {
         IndividuoFuncion1 clon= new IndividuoFuncion1(this.getValorError(),0);
-        clon.setCromosoma(b);
+        for (int i = 0; i < cromosoma.length; i++) {
+            clon.setCromosoma(i,new Boolean(b[i]));
+        }
         clon.evalua();
         return clon;
     }
@@ -82,5 +86,10 @@ public class IndividuoFuncion1 extends Individuo<Boolean> {
        
        return min[num]+res*((max[num]-min[num]))/(Math.pow(2, tamGenes[num])-1);
    }
+
+    @Override
+    public String toString() {
+        return ("Valor maximo en: "+getValor()+" x1: "+getFenotipo(0)+" x2: "+getFenotipo(1));
+    }
 
 }

@@ -10,7 +10,6 @@ import algoritmoGenetico.cruces.Cruce;
 import algoritmoGenetico.cruces.CruceAritmetico;
 import algoritmoGenetico.cruces.CruceBLX;
 import algoritmoGenetico.cruces.CruceMonopunto;
-import algoritmoGenetico.cruces.CruceSBX;
 import algoritmoGenetico.cruces.CruceUniforme;
 import algoritmoGenetico.individuos.Individuo;
 import algoritmoGenetico.individuos.IndividuoFuncion1;
@@ -63,6 +62,7 @@ public class AlgoritmoGenetico {
     private double elitismo;
     private int variables;
     private double aptitud_mAbs = 0; // mejor aptitud
+    private Individuo dominante;
     Graficas g;
     /*public AlgoritmoGenetico(int tamPoblacion, Individuo[] poblacion, double[] fitness, int maxGeneraciones, double probCruce, double probMutacion, int tamTorneo, double precision) {
         this.tamPoblacion = tamPoblacion;
@@ -175,6 +175,7 @@ public class AlgoritmoGenetico {
             
         }
         g.mostrarGrafica(mejorAbsoluto,mejor,media,presion,j);
+        
     }
 
     private void iniciarPoblacion() {
@@ -223,6 +224,7 @@ public class AlgoritmoGenetico {
                 mejor[generacionActual]=poblacion[i].getValor();
                 if (aptitud_mAbs<poblacion[i].getFitness()){
                     mAbs=poblacion[i].getValor();
+                    dominante=poblacion[i].clon(poblacion[i].getCromosoma());
                     aptitud_mAbs=poblacion[i].getFitness();
                 }
             
@@ -245,18 +247,20 @@ public class AlgoritmoGenetico {
      public Individuo[] getElite(double elitismo) {
         //quicksort(poblacion, 0, tamPoblacion-1);
         Individuo[] res= new Individuo[(int)(tamPoblacion*elitismo)/100];
-        double mAb=0;
+       
         double ultAb=100000;
         int pos=-1;
-        
         for (int i = 0; i < res.length; i++) {
+            double mAb=0;
+           
             for (int k = 0; k < tamPoblacion; k++) {
-                if(poblacion[k].getFitness()>=mAb && pos!=k && poblacion[k].getFitness()<=ultAb){
+                if(poblacion[k].getFitness()>=mAb && pos!=k && poblacion[k].getFitness()<ultAb){
                     mAb=poblacion[k].getFitness();
                     pos=k;
                 }
             }
-             res[i]=this.poblacion[pos];
+             
+             res[i]=this.poblacion[pos].clon(this.poblacion[pos].getCromosoma());
              ultAb=mAb;
         }
  
@@ -265,18 +269,17 @@ public class AlgoritmoGenetico {
     }
     private void introElite(Individuo[] pobElite) {
         //quicksort(poblacion, 0, tamPoblacion-1);
-        double mAb=pobElite[0].getFitness();
-        
-        int pos=-1;
         
         for (int i = 0; i < pobElite.length; i++) {
+            int pos=-1;
+            double mAb=pobElite[0].getFitness();
             for (int k = 0; k < tamPoblacion; k++) {
                 if(poblacion[k].getFitness()<=mAb && pos!=k ){
                     mAb=poblacion[k].getFitness();
                     pos=k;
                 }
             }
-             this.poblacion[pos]=pobElite[i];
+             this.poblacion[pos]=poblacion[pos].clon(pobElite[i].getCromosoma());
              
         }
     }
@@ -376,14 +379,9 @@ public class AlgoritmoGenetico {
         this.fitness = fitness;
     }
 
-    
+    public String getSolucion() {
+       return getElite(1)[0].toString();
+    }
 
-   
-
-   
-
-
-    
-    
 
 }

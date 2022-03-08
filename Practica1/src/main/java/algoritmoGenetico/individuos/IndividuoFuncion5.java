@@ -36,8 +36,8 @@ public class IndividuoFuncion5 extends Individuo<Double>{
     @Override
     public double getValor() {
         double valor=0;
-       for(int i = 0; i < fenotipo.length;i++) {
-			valor += Math.sin(getFenotipo(i)) *Math.pow((Math.sin(((i+1)*Math.pow(getFenotipo(i),2))/Math.PI)),20);
+        for(int i = 0; i < fenotipo.length;i++) {
+            valor += -(Math.sin(getFenotipo(i)) *Math.pow((Math.sin(((i+2)*Math.pow(getFenotipo(i),2))/Math.PI)),20));
        }
         
         return valor;
@@ -45,39 +45,35 @@ public class IndividuoFuncion5 extends Individuo<Double>{
 
     @Override
     public double evalua() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       fitness=n-getValor();
+        return fitness;
     }
 
     @Override
     public Individuo clon(Double[] b) {
         IndividuoFuncion5 clon= new IndividuoFuncion5(this.getValorError(),0);
-        clon.setCromosoma(b);
+        for (int i = 0; i < cromosoma.length; i++) {
+            clon.setCromosoma(i,new Double(b[i]));
+        }
         clon.evalua();
         return clon;
     }
 
     @Override
     public double getFenotipo(int num) {
-        double res=0;
-        int pos=0;
-        int p=0;
-        //ArrayList<T> alelo= new ArrayList();
-        for (int i = 0; i < num; i++) {
-            pos+=tamGenes[i];
+       
+
+        return cromosoma[num];
+    }
+
+    @Override
+    public String toString() {
+        String res="Valor mínimo en"+getValor();
+        for (int i = 0; i < 10; i++) {
+            res=res+"x"+(i+1)+":"+getFenotipo(0);
         }
-        for (int j = 0; j < tamGenes[num]; j++) {
-            //alelo.add(cromosoma[j]);
-            double aux=0;
-            if(cromosoma[j+pos]>1){
-                aux=1;
-            }
+        return ("Valor mínimo en: "+getValor()+" x1: "+getFenotipo(0)+" x2: "+getFenotipo(1));
 
-            res+=aux*Math.pow(2, p);
-            p++;
-
-        }
-
-        return min[num]+res*((max[num]-min[num]))/(Math.pow(2, tamGenes[num])-1);
     }
     
 }

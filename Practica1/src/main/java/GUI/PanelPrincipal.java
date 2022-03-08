@@ -58,6 +58,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         elitismoCheck = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
         n = new javax.swing.JTextField();
+        solucion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,6 +133,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         n.setText("6");
 
+        solucion.setEditable(false);
+        solucion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        solucion.setText("Solución");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,8 +177,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                             .addComponent(pCruce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tamPob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(elitismo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(488, Short.MAX_VALUE))
+                            .addComponent(elitismo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(solucion, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +230,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 308, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
+                .addComponent(solucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ejecutar)
                 .addContainerGap())
         );
@@ -231,11 +241,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ejecutarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ejecutarMouseClicked
+       panelMathPlot.removeAllPlots();
        
        AlgoritmoGenetico alG= new AlgoritmoGenetico(getFuncion(),getTamPob(),getnGen(),
                getpCruce(),getpMutas(),getPrecision(),getSeleccion(),getCruce(),getMutacion(),getElitismo(),elitism,getVariables() ,new Graficas(panelMathPlot));
        
         alG.run();
+        solucion.setText(alG.getSolucion());
         
     }//GEN-LAST:event_ejecutarMouseClicked
 
@@ -280,6 +292,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField pMutas;
     private javax.swing.JTextField precision;
     private javax.swing.JComboBox<String> seleccion;
+    private javax.swing.JTextField solucion;
     private javax.swing.JTextField tamPob;
     // End of variables declaration//GEN-END:variables
 

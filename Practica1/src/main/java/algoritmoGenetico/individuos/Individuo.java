@@ -103,5 +103,6 @@ public abstract class Individuo<T> {
     public abstract double evalua();
     public abstract Individuo clon( T[] crom);
     public abstract double getFenotipo(int num);
+    public abstract String toString();
     
 }
