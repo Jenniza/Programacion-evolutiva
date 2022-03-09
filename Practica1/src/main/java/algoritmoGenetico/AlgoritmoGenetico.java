@@ -17,6 +17,7 @@ import algoritmoGenetico.individuos.IndividuoFuncion2;
 import algoritmoGenetico.individuos.IndividuoFuncion3;
 import algoritmoGenetico.individuos.IndividuoFuncion4;
 import algoritmoGenetico.individuos.IndividuoFuncion5;
+import algoritmoGenetico.individuos.IndividuoFuncionExtra1;
 import algoritmoGenetico.mutaciones.Mutacion;
 import algoritmoGenetico.mutaciones.MutacionBasica;
 import algoritmoGenetico.mutaciones.MutacionUniforme;
@@ -109,16 +110,18 @@ public class AlgoritmoGenetico {
         
         switch(cruce){
             case 0:
-                this.cruce=new CruceAritmetico(this);
+                this.cruce=new CruceMonopunto(this);
+                
                 break;
             case 1:
-                this.cruce=new CruceBLX(this);
+                this.cruce=new CruceUniforme(this);
+                
                  break;
             case 2:
-                this.cruce=new CruceMonopunto(this);
+                this.cruce=new CruceAritmetico(this);
                 break;
             case 3:
-                this.cruce=new CruceUniforme(this);
+                this.cruce=new CruceBLX(this);
                  break;
         
         }
@@ -197,6 +200,9 @@ public class AlgoritmoGenetico {
                      break;
                 case 4:
                     this.poblacion[i]=new IndividuoFuncion5(this.precision,this.variables);
+                    break;
+                case 5:
+                    this.poblacion[i]=new IndividuoFuncionExtra1(this.precision,this.variables);
                     break;
             }
             
@@ -381,7 +387,7 @@ public class AlgoritmoGenetico {
     }
 
     public String getSolucion() {
-       return getElite(1)[0].toString();
+       return dominante.toString();
     }
 
 

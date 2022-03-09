@@ -25,6 +25,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         panelMathPlot = new Plot2DPanel();
         panelMathPlot.setBounds(350, 100, 600, 450);
         this.add(panelMathPlot);
+        
     }
 
     /**
@@ -65,7 +66,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Practica 1");
 
-        funcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Función 1", "Función 2", "Función 3", "Función 4", "Función 4(Con reales)" }));
+        funcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Función 1", "Función 2", "Función 3", "Función 4", "Función 4(Con reales)", "Función Extra 1", "Función Extra 2" }));
+        funcion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                funcionItemStateChanged(evt);
+            }
+        });
         funcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 funcionActionPerformed(evt);
@@ -100,9 +106,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         seleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estocastica", "Restos", "Ruleta", "T. Deterministico", "T. Probabilistico", "Truncamiento" }));
 
-        cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monopunto", "Uniforme" }));
+        cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monopunto", "Uniforme", "Aritmetico", "BLX", " " }));
 
-        mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica"}));
+        mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Uniforme" }));
 
         elitismo.setText("2");
         elitismo.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +260,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
    private void funcionCruce(String n){
 
             if(n.equals("Función 4(Con reales)")){
-                cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]  { "Aritmetico", "BLX", "Monopunto", "Uniforme" }));
+                cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]  { "Monopunto", "Uniforme","Aritmetico", "BLX" }));
                 mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Uniforme" }));
             }
             else{
@@ -264,12 +270,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
       }
 
     private void funcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionActionPerformed
-        funcion.addItemListener(event -> {
-            if (event.getStateChange() == ItemEvent.SELECTED) {
-              String n =event.getItem().toString();
-              funcionCruce(n);
-            }
-        });
 
     }//GEN-LAST:event_funcionActionPerformed
 
@@ -284,6 +284,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void elitismoCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_elitismoCheckStateChanged
         elitism=!elitism;
     }//GEN-LAST:event_elitismoCheckStateChanged
+
+    private void funcionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_funcionItemStateChanged
+        
+              String n =funcion.getSelectedItem().toString();
+              funcionCruce(n);
+           
+    }//GEN-LAST:event_funcionItemStateChanged
 
     
 

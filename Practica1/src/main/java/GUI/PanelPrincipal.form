@@ -151,16 +151,19 @@
     <Component class="javax.swing.JComboBox" name="funcion">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="7">
             <StringItem index="0" value="Funci&#xf3;n 1"/>
             <StringItem index="1" value="Funci&#xf3;n 2"/>
             <StringItem index="2" value="Funci&#xf3;n 3"/>
             <StringItem index="3" value="Funci&#xf3;n 4"/>
             <StringItem index="4" value="Funci&#xf3;n 4(Con reales)"/>
+            <StringItem index="5" value="Funci&#xf3;n Extra 1"/>
+            <StringItem index="6" value="Funci&#xf3;n Extra 2"/>
           </StringArray>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="funcionItemStateChanged"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="funcionActionPerformed"/>
       </Events>
       <AuxValues>
@@ -252,11 +255,12 @@
     <Component class="javax.swing.JComboBox" name="cruce">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Aritmetico"/>
-            <StringItem index="1" value="BLX"/>
-            <StringItem index="2" value="Monopunto"/>
-            <StringItem index="3" value="Uniforme"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Monopunto"/>
+            <StringItem index="1" value="Uniforme"/>
+            <StringItem index="2" value="Aritmetico"/>
+            <StringItem index="3" value="BLX"/>
+            <StringItem index="4" value=" "/>
           </StringArray>
         </Property>
       </Properties>
