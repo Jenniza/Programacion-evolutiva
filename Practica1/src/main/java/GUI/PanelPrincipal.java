@@ -100,9 +100,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         seleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estocastica", "Restos", "Ruleta", "T. Deterministico", "T. Probabilistico", "Truncamiento" }));
 
-        cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aritmetico", "BLX", "Monopunto", "Uniforme" }));
+        cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monopunto", "Uniforme" }));
 
-        mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Uniforme" }));
+        mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica"}));
 
         elitismo.setText("2");
         elitismo.addActionListener(new java.awt.event.ActionListener() {
@@ -251,15 +251,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
         solucion.setText(alG.getSolucion());
         
     }//GEN-LAST:event_ejecutarMouseClicked
-    private void funcionCruce(String n){
+   private void funcionCruce(String n){
 
             if(n.equals("Función 4(Con reales)")){
                 cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]  { "Aritmetico", "BLX", "Monopunto", "Uniforme" }));
+                mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Uniforme" }));
             }
             else{
                 cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monopunto", "Uniforme" }));
+                mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica" }));
             }
-        }
+      }
 
     private void funcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionActionPerformed
         funcion.addItemListener(event -> {
