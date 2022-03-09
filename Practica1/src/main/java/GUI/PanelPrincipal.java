@@ -250,9 +250,24 @@ public class PanelPrincipal extends javax.swing.JFrame {
         solucion.setText(alG.getSolucion());
         
     }//GEN-LAST:event_ejecutarMouseClicked
+    private void funcionCruce(String n){
+
+            if(n.equals("Función 4(Con reales)")){
+                cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]  { "Aritmetico", "BLX", "Monopunto", "Uniforme" }));
+            }
+            else{
+                cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monopunto", "Uniforme" }));
+            }
+        }
 
     private void funcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionActionPerformed
-        // TODO add your handling code here:
+        funcion.addItemListener(event -> {
+            if (event.getStateChange() == ItemEvent.SELECTED) {
+              String n =event.getItem().toString();
+              funcionCruce(n);
+            }
+        });
+
     }//GEN-LAST:event_funcionActionPerformed
 
     private void elitismoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elitismoActionPerformed
