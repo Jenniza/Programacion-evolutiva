@@ -29,9 +29,7 @@ public class IndividuoFuncion4 extends Individuo<Boolean>{
       
         this.cromosoma = new Boolean[tamTotal];
         for(int i = 0; i < tamTotal; i++) this.cromosoma[i] = this.rand.nextBoolean();
-        for (int i = 0; i < n; i++) {
-            System.out.println("x: "+getFenotipo(i));
-        }
+        
         
     }
 
@@ -87,11 +85,12 @@ public class IndividuoFuncion4 extends Individuo<Boolean>{
 
     @Override
     public String toString() {
-        String res="Valor mínimo en"+getValor();
-        for (int i = 0; i < 10; i++) {
-            res=res+"x"+(i+1)+":"+getFenotipo(0);
+        String res="Valor mínimo en: "+Math.round(getValor()/valorError)*valorError;
+        for (int i = 0; i < min.length; i++) {
+            res=res+" x"+(i+1)+": "+Math.round(getFenotipo(i)/valorError)*valorError;
         }
-        return ("Valor mínimo en: "+getValor()+" x1: "+getFenotipo(0)+" x2: "+getFenotipo(1));
+        return res;
+       
     }
     
 }

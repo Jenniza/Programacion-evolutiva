@@ -7,6 +7,7 @@ package algoritmoGenetico.cruces;
 
 import algoritmoGenetico.AlgoritmoGenetico;
 import algoritmoGenetico.individuos.Individuo;
+import java.util.Random;
 
 /**
  *
@@ -22,27 +23,62 @@ public class CruceBLX extends Cruce{
 
     @Override
    public void cruce() {
-        for (int i = 0; i < sel_cruce.length; i+=2) {
+        if(algG.getFuncion()==4){
+            Random rand=new Random();
+            for (int i = 0; i < sel_cruce.length; i+=2) {
             Individuo padre=algG.getPoblacion()[i];
             Individuo madre=algG.getPoblacion()[i+1];
             
             
             double n=1;
-            Object [] a=new Object[padre.getCromosoma().length];
-            Object [] b=new Object[madre.getCromosoma().length];
+            Double [] a=new Double[padre.getCromosoma().length];
             
+            
+            for (int j = 0; j < padre.getCromosoma().length; j++) {
+                double alfa= 0.5;
+                double max;
+                double min;
+                double l;
+                if ((Double)padre.getCromosoma()[j]>(Double)madre.getCromosoma()[j]) {
+                    max=(Double)padre.getCromosoma()[j];
+                    min=(Double)madre.getCromosoma()[j];
+                }else{
+                    min=(Double)padre.getCromosoma()[j];
+                    max=(Double)madre.getCromosoma()[j];
+                }
+                l=max-min;
+                double cromosomaHijo=rand.nextDouble(min-l*alfa, max + l*alfa);
+                a[i]=cromosomaHijo;
+                
+            }
+            hijo1=padre.clon((Double[])a);
+            hijo2=madre.clon((Double[])a);
+            algG.getPoblacion()[i]=hijo1;
+            algG.getPoblacion()[i+1]=hijo2;
+        }
+    
+        }else{
+            for (int i = 0; i < sel_cruce.length; i+=2) {
+            Individuo padre=algG.getPoblacion()[i];
+            Individuo madre=algG.getPoblacion()[i+1];
+
+
+            double n=1;
+            Boolean [] a=new Boolean[padre.getCromosoma().length];
+            Boolean [] b=new Boolean[madre.getCromosoma().length];
+
             for (int j = 0; j < padre.getCromosoma().length; j++) {
                 double r= Math.random();
                 if (r>0.5){
-                    a[i]=padre.getCromosoma()[j];
-                    b[i]=madre.getCromosoma()[j];
-                
+                    a[i]=(Boolean)padre.getCromosoma()[j];
+                    b[i]=(Boolean)madre.getCromosoma()[j];
+
                 }else{
-                    b[i]=padre.getCromosoma()[j];
-                    a[i]=madre.getCromosoma()[j];
+                    b[i]=(Boolean)padre.getCromosoma()[j];
+                    a[i]=(Boolean)madre.getCromosoma()[j];
                 }
-                
-                
+
+
             }
             hijo1=padre.clon((Boolean[])a);
             hijo2=madre.clon((Boolean[])b);
@@ -50,5 +86,5 @@ public class CruceBLX extends Cruce{
             algG.getPoblacion()[i+1]=hijo2;
         }
     }
-    
+        }
 }

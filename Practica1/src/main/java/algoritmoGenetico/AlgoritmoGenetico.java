@@ -164,7 +164,8 @@ public class AlgoritmoGenetico {
                 pobElite=getElite(elitismo);
             }
             sel.seleccion();
-            this.cruce.cruce();
+            cruce.getSel();
+            cruce.cruce();
             mut.mutacion();
             if (elitismoCheck) {
                 introElite(pobElite);

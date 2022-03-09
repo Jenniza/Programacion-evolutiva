@@ -28,6 +28,32 @@ public class CruceMonopunto extends Cruce{
     
     public void cruce() {
        Random rand=new Random();
+       if(algG.getFuncion()==4){
+         for (int i = 0; i < sel_cruce.length; i+=2) {
+            Individuo padre=algG.getPoblacion()[i];
+            Individuo madre=algG.getPoblacion()[i+1];
+            int pCruce=rand.nextInt(padre.getCromosoma().length-2)+1;
+            
+            Double [] a=new Double[padre.getCromosoma().length];
+            Double [] b=new Double[madre.getCromosoma().length];
+            for (int j = 0; j < padre.getCromosoma().length; j++) {
+                if(pCruce>j){
+                    a[j]=(Double)padre.getCromosoma()[j];
+                    b[j]=(Double)madre.getCromosoma()[j];
+                }else{
+                    a[j]=(Double)madre.getCromosoma()[j];
+                    b[j]=(Double)padre.getCromosoma()[j];
+                
+                }
+            }
+            hijo1=padre.clon((Double[])a);
+            hijo2=madre.clon((Double[])b);
+            algG.getPoblacion()[i]=hijo1;
+            algG.getPoblacion()[i+1]=hijo2;
+            
+        }
+       }
+       else{
         for (int i = 0; i < sel_cruce.length; i+=2) {
             Individuo padre=algG.getPoblacion()[i];
             Individuo madre=algG.getPoblacion()[i+1];
@@ -52,7 +78,7 @@ public class CruceMonopunto extends Cruce{
             
         }
         
-        
+       }
         
     
        

@@ -47,6 +47,7 @@ public class MutacionBasica extends Mutacion{
                 if (mutado){
                     algG.getPoblacion()[i].evalua();
                     mutado=false;
+                    
                 }
             }
              

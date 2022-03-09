@@ -28,8 +28,7 @@ public class IndividuoFuncion2 extends Individuo<Boolean> {
         for(int i = 0; i < tamTotal; i++) this.cromosoma[i] = this.rand.nextBoolean();
         this.fenotipo[0]=getFenotipo(0);
         this.fenotipo[1]=getFenotipo(1);
-        System.out.println("x: "+getFenotipo(0));
-        System.out.println("y: "+getFenotipo(1));
+
         
     }
 
@@ -48,7 +47,7 @@ public class IndividuoFuncion2 extends Individuo<Boolean> {
     }
 
     public double evalua() {
-        //falta por hacer
+        
         fitness=200-(getValor());
         return fitness;
     }
@@ -89,7 +88,8 @@ public class IndividuoFuncion2 extends Individuo<Boolean> {
 
     @Override
     public String toString() {
-        return ("Valor mínimo en: "+getValor()+" x1: "+getFenotipo(0)+" x2: "+getFenotipo(1));
+        return ("Valor mínimo en: "+Math.round(getValor()/valorError)*valorError+" x1: "+Math.round(getFenotipo(0)/valorError)*valorError+" x2: "+Math.round(getFenotipo(1)/valorError)*valorError);
+        
     }
     
 }

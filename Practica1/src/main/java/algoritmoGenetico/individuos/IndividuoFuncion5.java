@@ -21,16 +21,14 @@ public class IndividuoFuncion5 extends Individuo<Double>{
         for (int i = 0; i < n; i++) {
             this.min[i] = 0;
             this.max[i] = Math.PI;
-            this.tamGenes[i] = this.tamGen(this.valorError, min[i], max[i]);
+            this.tamGenes[i] = 1;
             tamTotal+=tamGenes[i];
         }
        
       
         this.cromosoma = new Double[tamTotal];
         for(int i = 0; i < tamTotal; i++) this.cromosoma[i] = this.rand.nextDouble(0, Math.PI);
-        for (int i = 0; i < n; i++) {
-            System.out.println("x"+n+getFenotipo(i));
-        }
+        
     }
 
     @Override
@@ -51,7 +49,7 @@ public class IndividuoFuncion5 extends Individuo<Double>{
 
     @Override
     public Individuo clon(Double[] b) {
-        IndividuoFuncion5 clon= new IndividuoFuncion5(this.getValorError(),0);
+        IndividuoFuncion5 clon= new IndividuoFuncion5(this.getValorError(),fenotipo.length);
         for (int i = 0; i < cromosoma.length; i++) {
             clon.setCromosoma(i,new Double(b[i]));
         }
@@ -68,11 +66,11 @@ public class IndividuoFuncion5 extends Individuo<Double>{
 
     @Override
     public String toString() {
-        String res="Valor mínimo en"+getValor();
-        for (int i = 0; i < 10; i++) {
-            res=res+"x"+(i+1)+":"+getFenotipo(0);
+        String res="Valor mínimo en: "+Math.round(getValor()/valorError)*valorError;
+        for (int i = 0; i < min.length; i++) {
+            res=res+" x"+(i+1)+": "+Math.round(getFenotipo(i)/valorError)*valorError;
         }
-        return ("Valor mínimo en: "+getValor()+" x1: "+getFenotipo(0)+" x2: "+getFenotipo(1));
+        return res;
 
     }
     

@@ -21,22 +21,22 @@ public class MutacionUniforme extends Mutacion{
 
     @Override
     public void mutacion() {
-                boolean mutado=false;
+        boolean mutado=false;
         int i,j;
         double prob;
         Random ran= new Random();
         for (i = 0; i < algG.getTamPoblacion(); i++) {
             for (int k = 0; k < algG.getPoblacion()[i].getTamGenes().length; k++) {
                 int genTam =algG.getPoblacion()[i].getTamGenes()[k];
-                for (j = 0;  j< genTam; ++j) {
-                    prob=ran.nextDouble(0,100);
+                
+                    prob=Math.random();
                     if(probMuta>prob){
                         mutado=true;
                         algG.getPoblacion()[i].setCromosoma(k, ran.nextDouble(algG.getPoblacion()[i].getMin()[k], algG.getPoblacion()[i].getMax()[k]));
                         
                     }
                     
-                }
+                
                 if (mutado){
                     algG.getPoblacion()[i].evalua();
                     mutado=false;

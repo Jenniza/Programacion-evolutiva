@@ -25,6 +25,10 @@ public abstract class Cruce {
         double prob=algG.getProbCruce()/100;
       
         
+        
+        
+    }
+    public void getSel(){
         ArrayList<Integer> sel=new ArrayList<Integer>();
         for (int i = 0; i < algG.getTamPoblacion(); i++) {
             double rand= Math.random();
@@ -33,7 +37,7 @@ public abstract class Cruce {
             }
         }
         sel_cruce=sel.stream().mapToInt(i->i).toArray();
-        
+    
     }
     public abstract void cruce();
 }
