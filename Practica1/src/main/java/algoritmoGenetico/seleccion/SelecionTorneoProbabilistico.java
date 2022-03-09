@@ -35,7 +35,7 @@ public class SelecionTorneoProbabilistico extends Seleccion{
             j=1;
             double p=0.75;
             int mejor=torneo[0];   
-            if(Math.random()>p){
+            if(Math.random()<p){
                
                 while(j<muestreo) {
                     int aux=torneo[j];
