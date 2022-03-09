@@ -8,6 +8,7 @@ import algoritmoGenetico.AlgoritmoGenetico;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import org.math.plot.Plot2DPanel;
+import java.awt.event.ItemEvent;
 
 /**
  *
