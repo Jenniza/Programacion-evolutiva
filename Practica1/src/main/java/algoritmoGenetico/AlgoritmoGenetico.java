@@ -18,6 +18,7 @@ import algoritmoGenetico.individuos.IndividuoFuncion3;
 import algoritmoGenetico.individuos.IndividuoFuncion4;
 import algoritmoGenetico.individuos.IndividuoFuncion5;
 import algoritmoGenetico.individuos.IndividuoFuncionExtra1;
+import algoritmoGenetico.individuos.IndividuoFuncionExtra2;
 import algoritmoGenetico.mutaciones.Mutacion;
 import algoritmoGenetico.mutaciones.MutacionBasica;
 import algoritmoGenetico.mutaciones.MutacionUniforme;
