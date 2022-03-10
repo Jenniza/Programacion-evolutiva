@@ -259,7 +259,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ejecutarMouseClicked
    private void funcionCruce(String n){
 
-            if(n.equals("Función 4(Con reales)")){
+            if(n.equals("Función 4(Con reales)")||n.equals("Función Extra 2")){
                 cruce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]  { "Monopunto", "Uniforme","Aritmetico", "BLX" }));
                 mutacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Uniforme" }));
             }
