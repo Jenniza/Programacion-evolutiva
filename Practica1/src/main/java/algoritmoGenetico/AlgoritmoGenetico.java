@@ -204,6 +204,9 @@ public class AlgoritmoGenetico {
                 case 5:
                     this.poblacion[i]=new IndividuoFuncionExtra1(this.precision,this.variables);
                     break;
+                case 6:
+                    this.poblacion[i]=new IndividuoFuncionExtra2(this.precision,this.variables);
+                    break;
             }
             
         }
