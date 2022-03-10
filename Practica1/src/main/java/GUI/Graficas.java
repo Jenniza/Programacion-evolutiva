@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import org.math.plot.*;
 /**
  *
- * @author usuario_local
+ * @author wulso
  */
 public class Graficas {
     Plot2DPanel panelMathPlot;
@@ -23,13 +23,11 @@ public class Graficas {
             for(int i = 0; i < x.length; i++) {
                     x[i] = i+1;
             }
-
-
             panelMathPlot.addLegend("SOUTH");
             panelMathPlot.addLinePlot("Mejor Absoluto", Color.BLUE, x, mejorAbs);
             panelMathPlot.addLinePlot("Mejor de la Generacion", Color.RED, x, mejor);
             panelMathPlot.addLinePlot("Media Generacion", Color.GREEN, x, media);
-            //panelMathPlot.addLinePlot("Presion selectiva", Color.gray, x, presion);
+            
            
      }
     

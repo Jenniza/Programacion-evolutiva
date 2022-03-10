@@ -7,10 +7,10 @@ package algoritmoGenetico.individuos;
 
 /**
  *
- * @author usuario_local
+ * @author wulso
  */
 public class IndividuoFuncionExtra2 extends Individuo<Double>{
-    //Michalewicz
+    
     public IndividuoFuncionExtra2(double v,int n) {
         super(v,n);
         this.tamGenes = new int[n];
@@ -43,7 +43,7 @@ public class IndividuoFuncionExtra2 extends Individuo<Double>{
 
     @Override
     public double evalua() {
-       fitness=getValor();
+       fitness=150-getValor();
         return fitness;
     }
 
@@ -59,8 +59,6 @@ public class IndividuoFuncionExtra2 extends Individuo<Double>{
 
     @Override
     public double getFenotipo(int num) {
-       
-
         return cromosoma[num];
     }
 

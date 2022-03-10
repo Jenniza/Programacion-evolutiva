@@ -59,12 +59,27 @@
                           <Component id="mutacion" min="-2" max="-2" attributes="0"/>
                           <Component id="cruce" min="-2" max="-2" attributes="0"/>
                           <Component id="seleccion" min="-2" max="-2" attributes="0"/>
-                          <Component id="precision" min="-2" max="-2" attributes="0"/>
-                          <Component id="pMutas" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pCruce" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nGen" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tamPob" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="elitismo" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="nGen" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tamPob" alignment="0" max="32767" attributes="0"/>
+                              <Component id="precision" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="pMutas" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="pCruce" alignment="0" pref="37" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="elitismo" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -97,11 +112,13 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pCruce" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pMutas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -127,6 +144,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="elitismo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="elitismoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -212,21 +230,25 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tamPob">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="100"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nGen">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="100"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pCruce">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="60"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pMutas">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
     </Component>
@@ -255,12 +277,9 @@
     <Component class="javax.swing.JComboBox" name="cruce">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="2">
             <StringItem index="0" value="Monopunto"/>
             <StringItem index="1" value="Uniforme"/>
-            <StringItem index="2" value="Aritmetico"/>
-            <StringItem index="3" value="BLX"/>
-            <StringItem index="4" value=" "/>
           </StringArray>
         </Property>
       </Properties>
@@ -271,9 +290,8 @@
     <Component class="javax.swing.JComboBox" name="mutacion">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="1">
             <StringItem index="0" value="Basica"/>
-            <StringItem index="1" value="Uniforme"/>
           </StringArray>
         </Property>
       </Properties>
@@ -283,6 +301,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="elitismo">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
       <Events>
@@ -313,6 +332,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="n">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
     </Component>
@@ -321,6 +341,21 @@
         <Property name="editable" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Soluci&#xf3;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="%"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="%"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="%"/>
       </Properties>
     </Component>
   </SubComponents>

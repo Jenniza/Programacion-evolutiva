@@ -7,6 +7,7 @@ algoritmoGenetico\mutaciones\MutacionBasica.class
 main\Main$1.class
 algoritmoGenetico\mutaciones\Mutacion.class
 algoritmoGenetico\seleccion\SeleccionTorneoDeterministico.class
+GUI\PanelPrincipal$3.class
 algoritmoGenetico\cruces\Cruce.class
 main\Main.class
 algoritmoGenetico\individuos\Individuo.class
@@ -14,8 +15,8 @@ algoritmoGenetico\mutaciones\MutacionUniforme.class
 algoritmoGenetico\seleccion\SelecionTorneoProbabilistico.class
 algoritmoGenetico\cruces\CruceUniforme.class
 algoritmoGenetico\individuos\IndividuoFuncion2.class
+algoritmoGenetico\individuos\IndividuoFuncionExtra1.class
 GUI\PanelPrincipal$5.class
-algoritmoGenetico\cruces\CruceSBX.class
 algoritmoGenetico\seleccion\Seleccion.class
 GUI\PanelPrincipal$2.class
 algoritmoGenetico\individuos\IndividuoFuncion1.class
@@ -26,5 +27,8 @@ algoritmoGenetico\seleccion\SelecconEstocasticaUniversal.class
 algoritmoGenetico\individuos\IndividuoFuncion3.class
 GUI\Graficas.class
 GUI\PanelPrincipal.class
+GUI\PanelPrincipal$4.class
+GUI\PanelPrincipal$6.class
+algoritmoGenetico\individuos\IndividuoFuncionExtra2.class
 algoritmoGenetico\seleccion\SeleccionTruncamiento.class
 algoritmoGenetico\seleccion\SeleccionRestos.class
